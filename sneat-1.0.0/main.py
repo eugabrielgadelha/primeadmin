@@ -278,6 +278,11 @@ def atualizar_cliente(id):
     cliente_db = dao.listar(id)
     return render_template('atualizar-cliente.html', cliente=cliente_db)
 
+@app.route('/deletar_cliente/<id>', methods=['GET', 'POST'])
+def deletar_cliente(id):
+    dao = ClienteDAO(get_db())
+    dao.excluir(id)
+    return redirect(url_for('listar_cliente'))
 
 #--------PRODUTO-----------
 
