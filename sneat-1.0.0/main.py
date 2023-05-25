@@ -250,13 +250,6 @@ def listar_cliente():
     clientes = dao.listar()
     return render_template("lista-cliente.html", clientes=clientes)
 
-@app.route('/deletar_cliente/<id>', methods=['GET', 'POST'])
-def deletar_cliente(id):
-    dao = ClienteDAO(get_db())
-    dao.excluir(id)
-    return redirect(url_for('listar_cliente'))
-
-
 @app.route('/atualizar-cliente-<id>', methods=['GET', 'POST'])
 def atualizar_cliente(id):
     dao = ClienteDAO(get_db())
