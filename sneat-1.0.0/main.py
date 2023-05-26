@@ -436,6 +436,11 @@ def compra_cliente():
     clientes = dao.listar()
     return render_template('compra-cliente.html', clientes=clientes, msg=msg)
 
+@app.route('/deletar_compra/<id>', methods=['GET', 'POST'])
+def deletar_compra(id):
+    dao = CompraDAO(get_db())
+    dao.excluir(id)
+    return redirect(url_for('listar_compra'))
 
 @app.route('/verifica-quantidade', methods=['GET', 'POST'])
 def verifica_quantidade():

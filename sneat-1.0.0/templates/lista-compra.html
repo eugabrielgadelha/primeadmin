@@ -271,7 +271,7 @@
                           <td>{{ compra[2] }}</td>
                           <td>{{ compra[3] }}</td>
                           <td>
-                            <a class="dropdown-item" href="/deletar_compra/{{ compra.id }}"
+                            <a class="dropdown-item" href="{{ url_for('deletar_compra', id=compra[0]) }}"
                               ><i class="bx bx-trash me-1"></i> Deletar</a
                             >
                           </td>

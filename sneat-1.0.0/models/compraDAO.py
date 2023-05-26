@@ -85,6 +85,16 @@ class CompraDAO():
         except:
             return 0
 
+    def excluir(self, id):
+        try:
+            sql = "DELETE FROM Compra WHERE id = %s"
+            cursor = self.con.cursor()
+            cursor.execute(sql, (id,))
+            self.con.commit()
+            return cursor.rowcount
+        except:
+            return 0
+
 
 
 
